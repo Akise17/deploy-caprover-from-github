@@ -1,6 +1,9 @@
 #!/bin/sh
 
-if [ x$INPUT_IMAGE != x ]
+if [ x$INPUT_PASSWORD != x ]
+then
+  caprover deploy --caproverUrl $INPUT_SERVER --caproverPassword $INPUT_PASSWORD --appName $INPUT_APP -i $INPUT_IMAGE
+elif [ x$INPUT_IMAGE != x ]
 then
   caprover deploy --caproverUrl $INPUT_SERVER --appToken $INPUT_TOKEN --appName $INPUT_APP -i $INPUT_IMAGE
 elif [ x$INPUT_BRANCH != x ]
